@@ -80,7 +80,7 @@
 
         pos_tracking:
             pos_tracking_enabled: true # True to enable positional tracking from start
-            pos_tracking_mode: 'GEN_3' # Matches the ZED SDK setting: 'GEN_1', 'GEN_2', 'GEN_3'
+            pos_tracking_mode: 'GEN_1' # Matches the ZED SDK setting: 'GEN_1', 'GEN_2', 'GEN_3'
             imu_fusion: true # enable/disable IMU fusion. When set to false, only the optical odometry will be used.
             publish_tf: true # [overwritten by launch file options] publish `odom -> camera_link` TF
             publish_map_tf: true # [overwritten by launch file options] publish `map -> odom` TF
@@ -97,7 +97,7 @@
             set_gravity_as_origin: true # If 'true' align the positional tracking world to imu gravity measurement. Keep the yaw from the user initial pose.
             floor_alignment: false # Enable to automatically calculate camera/floor offset
             initial_base_pose: [0.0, 0.0, 0.0, 0.0, 0.0, 0.0] # Initial position of the `camera_link` frame in the map -> [X, Y, Z, R, P, Y]
-            path_pub_rate: 2.0 # [DYNAMIC] - Camera trajectory publishing frequency
+            path_pub_rate: 5.0 # [DYNAMIC] - Camera trajectory publishing frequency
             path_max_count: -1 # use '-1' for unlimited path size
             two_d_mode: false # Force navigation on a plane. If true the Z value will be fixed to 'fixed_z_value', roll and pitch to zero
             fixed_z_value: 0.0 # Value to be used for Z coordinate if `two_d_mode` is true
@@ -105,7 +105,7 @@
             reset_pose_with_svo_loop: true # Reset the camera pose the `initial_base_pose` when the SVO loop is enabled and the SVO playback reaches the end of the file.
 
         gnss_fusion:
-            gnss_fusion_enabled: false # fuse 'sensor_msg/NavSatFix' message information into pose data
+            gnss_fusion_enabled: true # fuse 'sensor_msg/NavSatFix' message information into pose data
             gnss_fix_topic: '/fix' # Name of the GNSS topic of type NavSatFix to subscribe [Default: '/gps/fix']
             gnss_zero_altitude: false # Set to `true` to ignore GNSS altitude information
             h_covariance_mul: 1.0 # Multiplier factor to be applied to horizontal covariance of the received fix (plane X/Y)
